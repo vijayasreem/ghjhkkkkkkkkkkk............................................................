@@ -1,0 +1,28 @@
+
+<trigger>
+  <checkCreditLimit>
+    <condition>
+      <greaterThan>
+        <amount>50000</amount>
+        <perDay>true</perDay>
+      </greaterThan>
+    </condition>
+    <errorMessage>Your daily credit limit is exceeded.</errorMessage>
+  </checkCreditLimit>
+  <checkTransactionLimit>
+    <condition>
+      <greaterThan>
+        <amount>3</amount>
+        <perDay>true</perDay>
+      </greaterThan>
+    </condition>
+    <errorMessage>Transaction limit exceeded. You cannot perform more than 3 transactions in a day.</errorMessage>
+  </checkTransactionLimit>
+  <processTransaction>
+    <updateDailyCreditSpent>true</updateDailyCreditSpent>
+    <updateTransactionCount>true</updateTransactionCount>
+  </processTransaction>
+  <confirmationMessage>Transaction completed successfully.</confirmationMessage>
+  <errorMessageCreditLimit>Failed to process transaction: Credit limit check failed.</errorMessageCreditLimit>
+  <errorMessageTransactionLimit>Failed to process transaction: Transaction count check failed.</errorMessageTransactionLimit>
+</trigger>
